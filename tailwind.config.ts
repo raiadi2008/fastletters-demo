@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import plugin from "tailwindcss/plugin"
 
 const config: Config = {
   content: [
@@ -29,6 +30,14 @@ const config: Config = {
       maxHeight: {},
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    plugin(function ({ addVariant }) {
+      addVariant("child", "& > *")
+      addVariant("child-hover", "& > *:hover")
+      addVariant("child-focus", "& > *:focus")
+      addVariant("child-active", "& > *:active")
+    }),
+  ],
 }
 export default config
