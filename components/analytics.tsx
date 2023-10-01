@@ -66,24 +66,24 @@ const blogVisitCountry = [
 
 const sourceVisit = [
   {
-    title: "Medium.com",
-    view_count: 1345,
-  },
-  {
     title: "Google.com",
-    view_count: 1043,
+    view_count: 853,
   },
   {
     title: "Reddit",
-    view_count: 954,
+    view_count: 714,
   },
   {
     title: "Linkedin",
-    view_count: 753,
+    view_count: 703,
   },
   {
     title: "X (twitter)",
     view_count: 340,
+  },
+  {
+    title: "Medium.com",
+    view_count: 45,
   },
 ]
 

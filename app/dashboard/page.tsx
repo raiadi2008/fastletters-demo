@@ -17,6 +17,9 @@ import settingsSelectedIcon from "@/public/settings-selected.png"
 import logout from "@/public/logout.png"
 import Dashboard from "@/components/dashboard"
 import Analytics from "@/components/analytics"
+import Published from "@/components/published"
+import Drafts from "@/components/drafts"
+import Settings from "@/components/settings"
 
 interface DashboardType {
   name: string
@@ -88,6 +91,9 @@ export default function Page() {
       <section className='flex-grow h-screen overflow-scroll'>
         {selected === 0 && <Dashboard />}
         {selected === 1 && <Analytics />}
+        {selected === 2 && <Published />}
+        {selected === 3 && <Drafts />}
+        {selected === 4 && <Settings />}
       </section>
     </main>
   )
