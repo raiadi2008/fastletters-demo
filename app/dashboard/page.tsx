@@ -15,6 +15,8 @@ import draftsSelectedIcon from "@/public/drafts-selected.png"
 import settingsIcon from "@/public/settings.png"
 import settingsSelectedIcon from "@/public/settings-selected.png"
 import logout from "@/public/logout.png"
+import Dashboard from "@/components/dashboard"
+import Analytics from "@/components/analytics"
 
 interface DashboardType {
   name: string
@@ -41,9 +43,9 @@ const dashboardItemList = [
 export default function Page() {
   const [selected, setSelected] = useState(0)
   return (
-    <main className='h-screen w-screen flex flex-col'>
+    <main className='h-screen w-screen flex'>
       <section
-        className='h-full w-fit child:pb-8 px-16 relative border-r border-r-mainDark'
+        className='h-full w-fit py-5 px-16 relative border-r border-r-mainDark'
         id='sidebar'
       >
         <ul className='flex items-center gap-x-4'>
@@ -76,12 +78,16 @@ export default function Page() {
             )
           })}
         </ul>
-        <ul className='absolute bottom-4'>
+        <ul className='absolute bottom-12'>
           <li className='flex gap-x-4 items-center'>
             <Image src={logout} alt='' width={24} height={20} />
             <p className=' hover:cursor-pointer font-medium '>logout</p>
           </li>
         </ul>
+      </section>
+      <section className='flex-grow h-screen overflow-scroll'>
+        {selected === 0 && <Dashboard />}
+        {selected === 1 && <Analytics />}
       </section>
     </main>
   )
