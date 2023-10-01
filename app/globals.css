@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.bg-local-storage {
+  background-color: var(--bg-local-storage);
+}

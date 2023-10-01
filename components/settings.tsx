@@ -2,8 +2,15 @@ import { MuiColorInput } from "mui-color-input"
 import { use, useState } from "react"
 
 export default function Settings() {
-  const [accentColor, setAccentColor] = useState("#000")
-  const [secondaryColor, setSecondaryColor] = useState("#000")
+  const [accentColor, setAccentColor] = useState(
+    localStorage.getItem("accentColor") ?? "#CB6CE6"
+  )
+  const [secondaryColor, setSecondaryColor] = useState(
+    localStorage.getItem("secondaryColor") ?? "#000"
+  )
+  const [mainColor, setMainColor] = useState(
+    localStorage.getItem("mainColor") ?? "#fff"
+  )
   return (
     <div className='px-12 py-8 w-full'>
       <h2 className='text-3xl font-black'>Settings</h2>
@@ -20,7 +27,10 @@ export default function Settings() {
             format='hex'
             size='small'
             value={accentColor}
-            onChange={setAccentColor}
+            onChange={(e) => {
+              setAccentColor(e)
+              localStorage.setItem("accentColor", e)
+            }}
           />
         </div>
         <div className='w-80'>
@@ -34,7 +44,10 @@ export default function Settings() {
             format='hex'
             size='small'
             value={secondaryColor}
-            onChange={setAccentColor}
+            onChange={(e) => {
+              setSecondaryColor(e)
+              localStorage.setItem("secondaryColor", e)
+            }}
           />
         </div>
         <div className='w-80'>
@@ -47,8 +60,11 @@ export default function Settings() {
             variant='outlined'
             format='hex'
             size='small'
-            value={secondaryColor}
-            onChange={setAccentColor}
+            value={mainColor}
+            onChange={(e) => {
+              setMainColor(e)
+              localStorage.setItem("mainColor", e)
+            }}
           />
         </div>
       </div>

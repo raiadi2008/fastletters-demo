@@ -1,12 +1,42 @@
+"use client"
+
+import { useState } from "react"
+import { Card } from "@tremor/react"
+
 export default function Page() {
+  const secondaryColor = localStorage.getItem("secondaryColor") ?? "#000"
+  const accentColor = localStorage.getItem("accentColor") ?? "#fff"
+  const mainColor = localStorage.getItem("mainColor") ?? "#CB6CE6"
+  const offerTitle = localStorage.getItem("offerTitle")
+  const offerDescription = localStorage.getItem("offerDescription")
+  const buttonTitle = localStorage.getItem("buttonTitle")
+
   return (
     <main className='px-8 py-12 flex flex-grow gap-x-8'>
-      <section className='w-1/4'></section>
+      <section className='w-1/4'>
+        {offerTitle && offerTitle.length > 0 && (
+          <Card className='sticky top-5 mt-96'>
+            <h3 className='text-2xl font-black'>{offerTitle}</h3>
+            <p className='mt-4 text-gray-700'>{offerDescription}</p>
+            <button
+              className='py-3 w-full rounded font-semibold mt-8'
+              style={{ background: accentColor, color: mainColor }}
+            >
+              {buttonTitle}
+            </button>
+          </Card>
+        )}
+      </section>
       <section className='w-1/2'>
-        <h1 className='text-5xl font-black my-12 leading-tight'>
-          Why Blogging is important for your brand?
-        </h1>
-        <p>
+        <Card className='p-0 overflow-hidden'>
+          <h1
+            style={{ background: mainColor, color: secondaryColor }}
+            className='text-5xl font-black  leading-tight py-24 px-4'
+          >
+            Why Blogging is important for your brand?
+          </h1>
+        </Card>
+        <p className='mt-12'>
           In today&apos;s digital age, where online presence reigns supreme,
           blogging has emerged as a powerful tool for individuals and businesses
           alike. Whether you are a budding entrepreneur, a small business owner,
@@ -45,6 +75,22 @@ export default function Page() {
           level fosters trust and loyalty, essential elements for building a
           strong brand.
         </p>
+        {offerTitle && offerTitle.length > 0 && (
+          <Card className=' mt-12' style={{ background: accentColor }}>
+            <h3 style={{ color: mainColor }} className='text-4xl font-black'>
+              {offerTitle}
+            </h3>
+            <p style={{ color: mainColor }} className='mt-4 text-gray-700'>
+              {offerDescription}
+            </p>
+            <button
+              className='py-3 w-full rounded font-semibold mt-8'
+              style={{ background: mainColor, color: accentColor }}
+            >
+              {buttonTitle}
+            </button>
+          </Card>
+        )}
         <h2 className='text-2xl font-bold mt-8 mb-4'>
           4. Showcasing Your Unique Voice:
         </h2>
