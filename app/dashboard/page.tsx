@@ -14,12 +14,15 @@ import draftsIcon from "@/public/drafts.png"
 import draftsSelectedIcon from "@/public/drafts-selected.png"
 import settingsIcon from "@/public/settings.png"
 import settingsSelectedIcon from "@/public/settings-selected.png"
+import offersSelectedIcon from "@/public/offers-selected.png"
+import offersIcon from "@/public/offers.png"
 import logout from "@/public/logout.png"
 import Dashboard from "@/components/dashboard"
 import Analytics from "@/components/analytics"
 import Published from "@/components/published"
 import Drafts from "@/components/drafts"
 import Settings from "@/components/settings"
+import Offers from "@/components/offer"
 
 interface DashboardType {
   name: string
@@ -40,6 +43,7 @@ const dashboardItemList = [
   } as DashboardType,
   { name: "Published", img: blogsIcon, selected: blogsSelectedIcon },
   { name: "Drafts", img: draftsIcon, selected: draftsSelectedIcon },
+  { name: "Offers", img: offersIcon, selected: offersSelectedIcon },
   { name: "Settings", img: settingsIcon, selected: settingsSelectedIcon },
 ]
 
@@ -93,7 +97,8 @@ export default function Page() {
         {selected === 1 && <Analytics />}
         {selected === 2 && <Published />}
         {selected === 3 && <Drafts />}
-        {selected === 4 && <Settings />}
+        {selected === 4 && <Offers />}
+        {selected === 5 && <Settings />}
       </section>
     </main>
   )
