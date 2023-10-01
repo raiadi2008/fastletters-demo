@@ -150,7 +150,11 @@ export default function Dashboard() {
                     <Text>{item.created_on}</Text>
                   </TableCell>
                   <TableCell>
-                    <Badge color='emerald'>{item.status}</Badge>
+                    <Badge
+                      color={item.status === "active" ? "emerald" : "gray"}
+                    >
+                      {item.status}
+                    </Badge>
                   </TableCell>
                 </TableRow>
               ))}

@@ -12,7 +12,7 @@ export default function Page() {
       {
         type: "heading",
         attrs: { level: 2 },
-        content: [{ type: "text", text: "" }],
+        content: [{ type: "text", text: "Why is blog marketing important?" }],
       },
     ],
   })

@@ -1,7 +1,11 @@
+"use client"
+
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import logo from "@/public/logo.png"
 
 export default function Page() {
+  const router = useRouter()
   return (
     <main
       id='signup'
@@ -47,7 +51,8 @@ export default function Page() {
               />
             </div>
             <button
-              type='submit'
+              onClick={(e) => router.push("/dashboard")}
+              //type='submit'
               className='w-full mt-8 p-2 bg-gradient-to-br from-accent to-accent2 rounded text-lg font-bold text-white'
             >
               Log In

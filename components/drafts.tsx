@@ -1,3 +1,7 @@
+"use client"
+
+import { useRouter } from "next/navigation"
+
 import {
   Card,
   Title,
@@ -42,6 +46,7 @@ const mostVisitedArticles = [
 ]
 
 export default function Drafts() {
+  const router = useRouter()
   return (
     <div className='px-12 py-8 w-full'>
       <h2 className='text-3xl font-black'>Drafts</h2>
@@ -63,7 +68,9 @@ export default function Drafts() {
 
                 <TableCell>
                   <Text className='text-sm font-bold text-blue-600 hover:cursor-pointer'>
-                    Edit
+                    <button onClick={(e) => router.push("/editor")}>
+                      Edit
+                    </button>
                   </Text>
                 </TableCell>
                 <TableCell>
